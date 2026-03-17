@@ -46,7 +46,7 @@ export default function Navbar() {
             className="text-2xl font-bold cursor-pointer text-white tracking-wider flex items-center gap-1"
           >
             {/* <span className="text-primary">&lt;</span> */}
-            Sushant Ravi
+            SR 
             {/* <span className="text-secondary">/&gt;</span> */}
           </Link>
 
