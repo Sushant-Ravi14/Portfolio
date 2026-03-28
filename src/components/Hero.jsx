@@ -3,6 +3,7 @@ import { Link } from "react-scroll";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si";
 import profilePic from "../assets/profile.png";
+import resumePdf from "../assets/sushant_ravi_resume.pdf";
 
 export default function Hero() {
   const containerVariants = {
@@ -102,7 +103,7 @@ export default function Hero() {
               </Link>
 
               <a
-                href="/Sushant_Ravi_Resume.pdf"
+                href={resumePdf}
                 download="Sushant_Ravi_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
