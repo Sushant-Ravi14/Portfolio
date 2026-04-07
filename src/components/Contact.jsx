@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane } from "react-icons/fa";
-import { FaLinkedin, FaGithub, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaGithub, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { SiLeetcode, SiSololearn } from "react-icons/si";
 
 const socialLinks = [
   {
@@ -17,6 +18,21 @@ const socialLinks = [
     name: "twitter",
     url: "https://x.com/Sushant_Ravi_",
     icon: <FaXTwitter />,
+  },
+  {
+    name: "leetcode",
+    url: "https://leetcode.com/u/Sushant-Ravi/",
+    icon: <SiLeetcode />,
+  },
+  {
+    name: "youtube",
+    url: "https://www.youtube.com/channel/UC2IlSckB_w0BLMgdBixUyiQ",
+    icon: <FaYoutube />,
+  },
+  {
+    name: "sololearn",
+    url: "https://www.sololearn.com/en/profile/35854750",
+    icon: <SiSololearn />,
   },
 ];
 
@@ -123,7 +139,7 @@ export default function Contact() {
             <p className="text-center text-gray-500 text-sm font-medium uppercase tracking-widest mb-6">
               Connect with me
             </p>
-            <div className="flex justify-center gap-6">
+            <div className="flex justify-center flex-wrap gap-6">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}

@@ -8,6 +8,7 @@ import About from "./components/About";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -44,6 +45,10 @@ function App() {
           
           <div data-aos="fade-up">
             <Skills />
+          </div>
+          
+          <div data-aos="fade-up">
+            <Certificates />
           </div>
           
           <div data-aos="fade-up">
