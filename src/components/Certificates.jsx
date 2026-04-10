@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { certificates } from "../data/certificates";
+import GlowCard from "./GlowCard";
 
 export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -38,8 +39,9 @@ export default function Certificates() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               onClick={() => setSelectedCert(cert)}
-              className="glass-card overflow-hidden group cursor-pointer hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full"
+              className="h-full"
             >
+              <GlowCard className="group cursor-pointer hover:-translate-y-2 flex flex-col h-full !p-0">
               {/* Image Preview Area */}
               <div className="relative h-48 overflow-hidden bg-white/5 border-b border-white/10 flex items-center justify-center p-4">
                  <img 
@@ -74,6 +76,7 @@ export default function Certificates() {
                    {/* {cert.credentialId && <span className="text-xs text-primary/70 font-mono bg-primary/10 px-2 py-1 rounded-md">{cert.credentialId}</span>} */}
                 </div>
               </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

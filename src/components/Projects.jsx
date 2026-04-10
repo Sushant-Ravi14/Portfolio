@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaYoutube } from "react-icons/fa";
 import { projects } from "../data/projects";
+import GlowCard from "./GlowCard";
 
 export default function Projects() {
   const containerVariants = {
@@ -45,9 +46,10 @@ export default function Projects() {
             <motion.div
               key={project.id}
               variants={articleVariants}
-              className="glass-card group overflow-hidden flex flex-col h-full rounded-2xl border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.15)] hover:-translate-y-2"
+              className="h-full"
             >
-              {/* Image Container */}
+              <GlowCard className="glass-card group flex flex-col h-full hover:-translate-y-2">
+                {/* Image Container */}
               <div className="relative h-64 overflow-hidden bg-gray-900">
                 <img
                   src={project.image}
@@ -85,6 +87,16 @@ export default function Projects() {
                   >
                     <FaExternalLinkAlt className="text-sm" /> Live Demo
                   </a>
+                  {project.youtube && (
+                    <a
+                      href={project.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-[0.6] flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600/20 text-red-400 font-medium hover:bg-red-600 hover:text-white transition-all duration-300"
+                    >
+                      <FaYoutube className="text-lg" /> Watch
+                    </a>
+                  )}
                   <a
                     href={project.github}
                     target="_blank"
@@ -95,6 +107,7 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
+              </GlowCard>
             </motion.div>
           ))}
         </motion.div>

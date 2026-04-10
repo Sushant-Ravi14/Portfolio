@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { skills } from "../data/skills";
+import GlowCard from "./GlowCard";
 
 export default function Skills() {
   return (
@@ -26,21 +27,25 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="glass-card p-6 md:p-8 flex flex-col group hover:-translate-y-2 transition-transform duration-300"
+              className="h-full"
               style={{ perspective: "1000px" }}
             >
-              <h3 className="text-xl md:text-2xl font-bold mb-6 text-white border-b border-white/10 pb-4 text-center">
-                {category.category}
-              </h3>
+              <GlowCard className="p-6 md:p-8 group hover:-translate-y-2 transition-transform duration-300 h-full !bg-white/5 !backdrop-blur-xl">
+                <div className="flex flex-col h-full">
+                  <h3 className="text-xl md:text-2xl font-bold mb-6 text-white border-b border-white/10 pb-4 text-center">
+                    {category.category}
+                  </h3>
 
-              <div className="flex flex-col gap-5">
-                {category.items.map((skill, i) => (
-                  <div key={skill.name} className="flex items-center gap-4 hover:translate-x-2 transition-transform duration-300">
-                    <skill.icon className={`text-3xl ${skill.color} drop-shadow-lg`} />
-                    <span className="text-gray-300 font-medium text-lg">{skill.name}</span>
+                  <div className="flex flex-col gap-5 flex-grow justify-evenly py-2">
+                    {category.items.map((skill, i) => (
+                      <div key={skill.name} className="flex items-center gap-4 hover:translate-x-2 transition-transform duration-300">
+                        <skill.icon className={`text-3xl ${skill.color} drop-shadow-lg`} />
+                        <span className="text-gray-300 font-medium text-lg">{skill.name}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

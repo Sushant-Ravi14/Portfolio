@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Lenis from "lenis";
 
+import Background3D from "./components/Background3D";
+import CommandPalette from "./components/CommandPalette";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -21,6 +24,24 @@ function App() {
       easing: "ease-out-cubic",
       offset: 50,
     });
+
+    // Initialize Vanilla Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   return (
@@ -28,8 +49,12 @@ function App() {
       {/* Background Gradient Mesh - Static */}
       <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-dark to-black" />
       
+      {/* 3D Particle Background */}
+      <Background3D />
+      
       {/* App Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
+        <CommandPalette />
         <Navbar />
         
         <main className="flex-grow">
@@ -37,10 +62,6 @@ function App() {
           
           <div data-aos="fade-up">
             <About />
-          </div>
-          
-          <div data-aos="fade-up">
-            <Education />
           </div>
           
           <div data-aos="fade-up">
@@ -53,6 +74,10 @@ function App() {
           
           <div data-aos="fade-up">
             <Projects />
+          </div>
+          
+          <div data-aos="fade-up">
+            <Education />
           </div>
           
           <div data-aos="fade-up">
