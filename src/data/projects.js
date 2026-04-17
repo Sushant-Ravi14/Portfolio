@@ -1,10 +1,10 @@
-import veirdoThumb from "../assets/projects/veirdo.png";
-import xpressbeesThumb from "../assets/projects/xpressbees.png";
-import lanchatThumb from "../assets/projects/lanchat.png";
-import studentPortalThumb from "../assets/projects/student_portal.png";
-
 const minimalistThumb = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1770460734/Screenshot_2026-02-07_160841_ipyknw.png";
 const rhoneThumb = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1775786877/Screenshot_2026-04-10_073448_y4oead.png";
+const xpressbeesThumb = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776399841/xpressbees_nbnrg7.png";
+const veirdoThumb = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776399841/veirdo_uyxuk3.png";
+const lanchatThumb = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1770461102/Screenshot_2026-02-07_161447_git5rr.png";
+const studentPortalThumb = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776399840/student_portal_fuqgtx.png";
+
 
 export const projects = [
   {

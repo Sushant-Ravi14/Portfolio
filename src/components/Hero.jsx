@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss } from "react-icons/si";
-import profilePic from "../assets/profile.png";
+import { SiMongodb, SiTailwindcss } from "react-icons/si"; 
 import resumePdf from "../assets/sushant_ravi_resume.pdf";
+const profilePic = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776400819/profile_aqps50.png";
+
 
 export default function Hero() {
   const containerVariants = {
