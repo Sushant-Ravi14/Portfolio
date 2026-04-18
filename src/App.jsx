@@ -11,6 +11,7 @@ import About from "./components/About";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Figma from "./components/Figma";
 import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -74,6 +75,10 @@ function App() {
           
           <div data-aos="fade-up">
             <Projects />
+          </div>
+          
+          <div data-aos="fade-up">
+            <Figma />
           </div>
           
           <div data-aos="fade-up">
