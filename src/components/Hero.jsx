@@ -125,10 +125,12 @@ export default function Hero() {
               {/* Glow background */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-3xl blur-2xl opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-              <div className="relative rounded-3xl overflow-hidden glass p-3 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+              <div className="relative rounded-3xl overflow-hidden glass p-3 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] will-change-transform">
                 <img
                   src={profilePic}
                   alt="Sushant Ravi"
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full max-w-[300px] md:max-w-[380px] h-auto rounded-2xl object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>

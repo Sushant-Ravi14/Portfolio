@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 
@@ -25,8 +25,10 @@ function ParticleSystem({ count, color, radius, speedX, speedY }) {
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta * speedX;
-      ref.current.rotation.y -= delta * speedY;
+      // Limit maximum delta to prevent huge jumps if tab was inactive
+      const safeDelta = Math.min(delta, 0.1);
+      ref.current.rotation.x -= safeDelta * speedX;
+      ref.current.rotation.y -= safeDelta * speedY;
     }
   });
 
@@ -47,17 +49,47 @@ function ParticleSystem({ count, color, radius, speedX, speedY }) {
 }
 
 export default function Background3D() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none opacity-60">
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        {/* Subtle ambient light just in case */}
+    <div className="fixed inset-0 z-[0] pointer-events-none opacity-60">
+      <Canvas 
+        camera={{ position: [0, 0, 1] }} 
+        dpr={[1, 1.5]} // Limit pixel ratio to 1.5 for performance
+        gl={{ antialias: false, powerPreference: "high-performance" }}
+      >
         <ambientLight intensity={0.5} />
-        {/* Primary green particles */}
-        <ParticleSystem count={2500} color="#4ade80" radius={1.5} speedX={0.03} speedY={0.05} />
-        {/* Secondary indigo particles */}
-        <ParticleSystem count={2000} color="#6366f1" radius={1.8} speedX={0.015} speedY={0.03} />
-        {/* Some white/gray particles for distant stars */}
-        <ParticleSystem count={1500} color="#ffffff" radius={2.5} speedX={0.01} speedY={0.01} />
+        {/* Reduce particles significantly on mobile for 60fps performance */}
+        <ParticleSystem 
+          count={isMobile ? 800 : 2000} 
+          color="#4ade80" 
+          radius={1.5} 
+          speedX={0.03} 
+          speedY={0.05} 
+        />
+        <ParticleSystem 
+          count={isMobile ? 600 : 1500} 
+          color="#6366f1" 
+          radius={1.8} 
+          speedX={0.015} 
+          speedY={0.03} 
+        />
+        <ParticleSystem 
+          count={isMobile ? 400 : 1000} 
+          color="#ffffff" 
+          radius={2.5} 
+          speedX={0.01} 
+          speedY={0.01} 
+        />
       </Canvas>
     </div>
   );
