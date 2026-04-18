@@ -46,7 +46,9 @@ export default function Certificates() {
               <div className="relative h-48 overflow-hidden bg-white/5 border-b border-white/10 flex items-center justify-center p-4">
                  <img 
                    src={cert.image} 
-                   alt={cert.title} 
+                   alt={cert.title}
+                   width="500"
+                   height="300" 
                    loading="lazy"
                    className="h-full w-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                    onError={(e) => { 

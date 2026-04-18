@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Lenis from "lenis";
 
-import Background3D from "./components/Background3D";
+const Background3D = lazy(() => import("./components/Background3D"));
 import CommandPalette from "./components/CommandPalette";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -72,8 +72,10 @@ function App() {
       {/* Background Gradient Mesh - Static */}
       <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 via-dark to-black" aria-hidden="true" />
       
-      {/* 3D Particle Background */}
-      <Background3D />
+      {/* 3D Particle Background - Lazy loaded to prevent blocking main thread */}
+      <Suspense fallback={null}>
+        <Background3D />
+      </Suspense>
       
       {/* App Content */}
       <div className="relative z-10 flex flex-col min-h-screen">

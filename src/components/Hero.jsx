@@ -2,8 +2,15 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si"; 
+// Cloudinary auto-optimization helper
+function cloudinaryOpt(url, width) {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  const transform = width ? `f_auto,q_auto,w_${width}` : 'f_auto,q_auto';
+  return url.replace('/upload/', `/upload/${transform}/`);
+}
+
 const resumeUrl = "/sr_resume.pdf";
-const profilePic = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776400819/profile_aqps50.png";
+const profilePic = cloudinaryOpt("https://res.cloudinary.com/dxe4mpopf/image/upload/v1776400819/profile_aqps50.png", 800);
 
 
 export default function Hero() {
@@ -129,6 +136,8 @@ export default function Hero() {
                 <img
                   src={profilePic}
                   alt="Sushant Ravi"
+                  width="380"
+                  height="380"
                   fetchPriority="high"
                   decoding="async"
                   className="w-full max-w-[300px] md:max-w-[380px] h-auto rounded-2xl object-cover filter grayscale hover:grayscale-0 transition-all duration-700"

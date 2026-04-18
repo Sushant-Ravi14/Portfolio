@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { FaLinkedin, FaGithub, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { SiLeetcode, SiSololearn } from "react-icons/si";
 
@@ -43,33 +43,29 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // You can set these in your .env file or replace the hardcoded placeholders
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
 
-    emailjs
-      .sendForm(serviceId, templateId, form.current, {
-        publicKey: publicKey,
-      })
-      .then(
-        () => {
-          setIsSubmitting(false);
-          setSubmitStatus('success');
-          form.current.reset();
-          setTimeout(() => setSubmitStatus(null), 5000); // Hide success after 5s
-        },
-        (error) => {
-          setIsSubmitting(false);
-          setSubmitStatus('error');
-          console.error('FAILED...', error.text);
-        },
-      );
+    try {
+      // Initialize EmailJS with the public key before sending
+      emailjs.init({ publicKey });
+
+      await emailjs.sendForm(serviceId, templateId, form.current);
+      setIsSubmitting(false);
+      setSubmitStatus('success');
+      form.current.reset();
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+      console.error('EmailJS Error:', error?.text || error?.message || error);
+    }
   };
 
   return (

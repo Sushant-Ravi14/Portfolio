@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 import GlowCard from "./GlowCard";
 
+// Cloudinary auto-optimization helper
+function cloudinaryOpt(url, width) {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  const transform = width ? `f_auto,q_auto,w_${width}` : 'f_auto,q_auto';
+  return url.replace('/upload/', `/upload/${transform}/`);
+}
+
 const hackathons = [
   {
     id: 1,
@@ -9,7 +16,7 @@ const hackathons = [
     description: "Corporate finance teams struggle with fragmented expense tracking systems that lack proper role-based workflows, leading to manual oversight, delayed approvals, and opaque financial reporting.",
     demo: "https://teambytebusters.netlify.app/",
     github: "https://github.com/Sushant-Ravi14/Byte_busters",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776477942/Screenshot_2026-04-18_073455_jwunjm.png",
+    thumbnail: cloudinaryOpt("https://res.cloudinary.com/dxe4mpopf/image/upload/v1776477942/Screenshot_2026-04-18_073455_jwunjm.png", 600),
   },
   {
     id: 2,
@@ -17,7 +24,7 @@ const hackathons = [
     description: "Managing a modern fleet involves juggling fragmented data — from vehicle health and fuel costs to driver safety and complex delivery schedules. Without a centralized system, logistics teams face high operational overhead and data silos.",
     demo: "https://odoo-guj-vid.vercel.app/",
     github: "https://github.com/harshit-kumar-dev/odoo-Guj-Vid",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776477949/Screenshot_2026-04-18_073354_semaw2.png",
+    thumbnail: cloudinaryOpt("https://res.cloudinary.com/dxe4mpopf/image/upload/v1776477949/Screenshot_2026-04-18_073354_semaw2.png", 600),
   }
 ];
 
@@ -74,6 +81,8 @@ export default function Hackathon() {
                   <img
                     src={hackathon.thumbnail}
                     alt={hackathon.title}
+                    width="600"
+                    height="400"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                     loading="lazy"
                   />

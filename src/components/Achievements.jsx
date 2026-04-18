@@ -48,6 +48,8 @@ export default function Achievements() {
                <img 
                  src={achievement.image} 
                  alt={achievement.title} 
+                 width="500"
+                 height="300"
                  loading="lazy"
                  className="h-full w-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                  onError={(e) => { 

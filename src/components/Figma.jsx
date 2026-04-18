@@ -2,26 +2,33 @@ import { motion } from "framer-motion";
 import { FaFigma } from "react-icons/fa";
 import GlowCard from "./GlowCard";
 
+// Cloudinary auto-optimization helper
+function cloudinaryOpt(url, width) {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  const transform = width ? `f_auto,q_auto,w_${width}` : 'f_auto,q_auto';
+  return url.replace('/upload/', `/upload/${transform}/`);
+}
+
 const figmaDesigns = [
   {
     id: 1,
     title: "Landing Page Design",
     description: "A visually compelling landing page mockup prioritizing clear call-to-actions, dynamic layouts, and a cohesive modern color palette.",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459310/Screenshot_2026-04-18_022302_otawz5.png",
+    thumbnail: cloudinaryOpt("https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459310/Screenshot_2026-04-18_022302_otawz5.png", 600),
     link: "https://www.figma.com/design/wDNO99XbxdTpCqD2XUk1JJ/Untitled?node-id=298-319&t=u1IFa0ci5FFQQupU-1",
   },
   {
     id: 2,
     title: "redRail UI Clone",
     description: "A detailed UI replica of the redRail booking application, capturing its intuitive navigation, search features, and responsive design structure.",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459310/Screenshot_2026-04-18_022415_zvqwxb.png",
+    thumbnail: cloudinaryOpt("https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459310/Screenshot_2026-04-18_022415_zvqwxb.png", 600),
     link: "https://www.figma.com/design/wDNO99XbxdTpCqD2XUk1JJ/Untitled?node-id=298-25&t=u1IFa0ci5FFQQupU-1",
   },
   {
     id: 3,
     title: "Hospital Website UI with Prototype",
     description: "A complete professional hospital website design including a fully functional Figma prototype, focusing on patient accessibility and clear service navigation.",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459315/Screenshot_2026-04-18_022447_mtkau0.png",
+    thumbnail: cloudinaryOpt("https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459315/Screenshot_2026-04-18_022447_mtkau0.png", 600),
     link: "https://www.figma.com/proto/wDNO99XbxdTpCqD2XUk1JJ/Untitled?node-id=298-191&t=u1IFa0ci5FFQQupU-0&scaling=contain&content-scaling=fixed&page-id=0%3A1",
   }
 ];
@@ -79,6 +86,8 @@ export default function Figma() {
                   <img
                     src={design.thumbnail}
                     alt={design.title}
+                    width="600"
+                    height="400"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                     loading="lazy"
                   />
