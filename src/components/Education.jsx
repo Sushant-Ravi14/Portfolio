@@ -37,7 +37,7 @@ export default function Education() {
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto glass-card p-8 md:p-12 rounded-3xl backdrop-blur-xl">
+        <div className="max-w-4xl mx-auto glass-card p-6 sm:p-8 md:p-12 rounded-3xl backdrop-blur-xl">
           <div className="border-l-2 border-primary/30 ml-3 pl-8 space-y-12 relative">
             {education.map((item, index) => (
               <motion.div
@@ -49,7 +49,7 @@ export default function Education() {
                 className="relative group"
               >
                 <span className="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-dark border-2 border-primary group-hover:scale-125 transition-transform duration-300 group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(74,222,128,0.8)]"></span>
-                <h4 className="font-bold text-white text-2xl group-hover:text-primary transition-colors duration-300">
+                <h4 className="font-bold text-white text-xl sm:text-2xl group-hover:text-primary transition-colors duration-300">
                   {item.institution}
                 </h4>
                 <span className="text-gradient font-semibold text-lg mt-2 block">

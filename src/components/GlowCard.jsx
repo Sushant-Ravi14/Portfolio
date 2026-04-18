@@ -36,7 +36,7 @@ export default function GlowCard({ children, className = "" }) {
           background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255, 0.1), transparent 40%)`,
         }}
       />
-      <div className="relative z-10 h-full w-full">
+      <div className="relative z-10 h-full w-full flex flex-col">
         {children}
       </div>
     </div>

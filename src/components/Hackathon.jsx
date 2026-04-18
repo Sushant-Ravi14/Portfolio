@@ -1,32 +1,27 @@
 import { motion } from "framer-motion";
-import { FaFigma } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 import GlowCard from "./GlowCard";
 
-const figmaDesigns = [
+const hackathons = [
   {
     id: 1,
-    title: "Landing Page Design",
-    description: "A visually compelling landing page mockup prioritizing clear call-to-actions, dynamic layouts, and a cohesive modern color palette.",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459310/Screenshot_2026-04-18_022302_otawz5.png",
-    link: "https://www.figma.com/design/wDNO99XbxdTpCqD2XUk1JJ/Untitled?node-id=298-319&t=u1IFa0ci5FFQQupU-1",
+    title: "Odoo x Amlthea Hackathon 2025",
+    description: "Corporate finance teams struggle with fragmented expense tracking systems that lack proper role-based workflows, leading to manual oversight, delayed approvals, and opaque financial reporting.",
+    demo: "https://teambytebusters.netlify.app/",
+    github: "https://github.com/Sushant-Ravi14/Byte_busters",
+    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776477942/Screenshot_2026-04-18_073455_jwunjm.png",
   },
   {
     id: 2,
-    title: "redRail UI Clone",
-    description: "A detailed UI replica of the redRail booking application, capturing its intuitive navigation, search features, and responsive design structure.",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459310/Screenshot_2026-04-18_022415_zvqwxb.png",
-    link: "https://www.figma.com/design/wDNO99XbxdTpCqD2XUk1JJ/Untitled?node-id=298-25&t=u1IFa0ci5FFQQupU-1",
-  },
-  {
-    id: 3,
-    title: "Hospital Website UI with Prototype",
-    description: "A complete professional hospital website design including a fully functional Figma prototype, focusing on patient accessibility and clear service navigation.",
-    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776459315/Screenshot_2026-04-18_022447_mtkau0.png",
-    link: "https://www.figma.com/proto/wDNO99XbxdTpCqD2XUk1JJ/Untitled?node-id=298-191&t=u1IFa0ci5FFQQupU-0&scaling=contain&content-scaling=fixed&page-id=0%3A1",
+    title: "Odoo x Gujarat Vidyapith Hackathon 2026",
+    description: "Managing a modern fleet involves juggling fragmented data — from vehicle health and fuel costs to driver safety and complex delivery schedules. Without a centralized system, logistics teams face high operational overhead and data silos.",
+    demo: "https://odoo-guj-vid.vercel.app/",
+    github: "https://github.com/harshit-kumar-dev/odoo-Guj-Vid",
+    thumbnail: "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776477949/Screenshot_2026-04-18_073354_semaw2.png",
   }
 ];
 
-export default function Figma() {
+export default function Hackathon() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,7 +38,7 @@ export default function Figma() {
   };
 
   return (
-    <section id="figma" className="py-24 relative overflow-hidden">
+    <section id="hackathon" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -53,10 +48,10 @@ export default function Figma() {
           className="text-center mb-16"
         >
           <span className="text-white tracking-widest uppercase text-sm font-semibold mb-2 block">
-            UI / UX
+            Competitions
           </span>
           <h2 className="text-4xl md:text-5xl font-bold">
-            <span className="text-gradient">Figma Designs</span>
+            <span className="text-gradient">Hackathons</span>
           </h2>
         </motion.div>
 
@@ -65,11 +60,11 @@ export default function Figma() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto"
         >
-          {figmaDesigns.map((design) => (
+          {hackathons.map((hackathon) => (
             <motion.div
-              key={design.id}
+              key={hackathon.id}
               variants={articleVariants}
               className="h-full"
             >
@@ -77,8 +72,8 @@ export default function Figma() {
                 {/* Image Container */}
                 <div className="relative h-48 sm:h-64 overflow-hidden bg-gray-900 rounded-t-xl group">
                   <img
-                    src={design.thumbnail}
-                    alt={design.title}
+                    src={hackathon.thumbnail}
+                    alt={hackathon.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                     loading="lazy"
                   />
@@ -88,28 +83,39 @@ export default function Figma() {
 
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 flex items-center justify-center gap-1.5 text-xs font-semibold bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white shadow-lg">
-                      <FaFigma className="text-[#F24E1E]" /> Design
+                       <FaCode className="text-primary" /> Hackathon
                     </span>
                   </div>
                 </div>
 
                 {/* Content Container */}
                 <div className="p-5 sm:p-8 flex flex-col flex-grow bg-gradient-to-b from-transparent to-dark/50 rounded-b-xl">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white group-hover:text-[#A259FF] transition-colors">
-                    {design.title}
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors">
+                    {hackathon.title}
                   </h3>
+                  <h4 className="text-lg font-semibold text-gray-300 mb-2">
+                    Problem Statement
+                  </h4>
                   <p className="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
-                    {design.description}
+                    {hackathon.description}
                   </p>
 
                   <div className="flex gap-4 mt-auto border-t border-white/10 pt-6">
                     <a
-                      href={design.link}
+                      href={hackathon.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl bg-purple-500/20 text-[#A259FF] font-medium hover:bg-purple-600 hover:text-white transition-all duration-300 text-sm sm:text-base min-w-[100px]"
+                      className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl bg-primary/20 text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300 text-sm sm:text-base min-w-[100px]"
                     >
-                      <FaFigma className="text-lg" /> View Live
+                      <FaExternalLinkAlt className="text-sm" /> Live Demo
+                    </a>
+                    <a
+                      href={hackathon.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-[0.5] flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl border border-white/20 text-white hover:bg-white/10 transition-all duration-300 group/git text-sm sm:text-base"
+                    >
+                      <FaGithub className="text-lg group-hover/git:scale-110 transition-transform" /> Code
                     </a>
                   </div>
                 </div>
@@ -120,7 +126,7 @@ export default function Figma() {
       </div>
 
       {/* Decorative Blob */}
-      <div className="absolute right-[-10%] top-[30%] w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute left-[-10%] top-[30%] w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
     </section>
   );
 }

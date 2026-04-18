@@ -47,6 +47,7 @@ export default function Certificates() {
                  <img 
                    src={cert.image} 
                    alt={cert.title} 
+                   loading="lazy"
                    className="h-full w-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                    onError={(e) => { 
                      e.target.onerror = null; 

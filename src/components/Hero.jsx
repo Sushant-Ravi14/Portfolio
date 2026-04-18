@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si"; 
-import resumePdf from "../assets/sushant_ravi_resume.pdf";
+const resumeUrl = "/sr_resume.pdf";
 const profilePic = "https://res.cloudinary.com/dxe4mpopf/image/upload/v1776400819/profile_aqps50.png";
 
 
@@ -70,14 +70,14 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tighter"
+              className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tighter"
             >
               <span className="text-white">Sushant Ravi</span>
             </motion.h1>
 
             <motion.h2
               variants={itemVariants}
-              className="text-3xl md:text-5xl font-bold mb-8 text-gradient pb-2"
+              className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 text-gradient pb-2"
             >
               Aspiring MERN Stack Developer
             </motion.h2>
@@ -104,13 +104,12 @@ export default function Hero() {
               </Link>
 
               <a
-                href={resumePdf}
-                download="Sushant_Ravi_Resume.pdf"
+                href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline cursor-pointer w-full sm:w-auto text-center"
               >
-                Resume
+                View Resume
               </a>
             </motion.div>
           </motion.div>

@@ -10,6 +10,8 @@ const navLinks = [
   { name: "Certificates", to: "certificates" },
   { name: "Projects", to: "projects" },
   { name: "Figma", to: "figma" },
+  { name: "Hackathon", to: "hackathon" },
+  { name: "Achievements", to: "achievements" },
   { name: "Education", to: "education" },
   { name: "Contact", to: "contact" },
 ];
@@ -35,8 +37,8 @@ export default function Navbar() {
     >
       <header
         className={`w-full transition-all duration-300 flex flex-col justify-center ${isScrolled
-          ? "glass py-3 px-6 md:px-10 rounded-2xl max-w-[95%] md:max-w-6xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10"
-          : "bg-transparent py-5 px-6 md:px-12 container mx-auto"
+          ? "glass py-2 px-6 md:px-8 rounded-2xl max-w-[95%] md:max-w-6xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10"
+          : "bg-transparent py-3 px-6 md:px-10 container mx-auto"
           }`}
       >
         <div className="flex justify-between items-center w-full relative">
@@ -53,8 +55,8 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation & Socials */}
-          <nav className="hidden lg:flex gap-8 items-center">
-            <div className="flex gap-8 items-center">
+          <nav className="hidden lg:flex gap-5 items-center">
+            <div className="flex gap-5 items-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -63,7 +65,7 @@ export default function Navbar() {
                   duration={500}
                   spy={true}
                   activeClass="text-primary font-medium"
-                  className="text-gray-300 hover:text-white cursor-pointer relative group transition-colors duration-300 text-sm tracking-wide uppercase"
+                  className="text-gray-300 hover:text-white cursor-pointer relative group transition-colors duration-300 text-[13px] tracking-wide uppercase"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>

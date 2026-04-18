@@ -88,7 +88,7 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10"
         >
           <AnimatePresence mode="popLayout">
             {currentProjects.map((project) => (
@@ -103,7 +103,7 @@ export default function Projects() {
               >
                 <GlowCard className="glass-card group flex flex-col h-full hover:-translate-y-2">
                   {/* Image Container */}
-                  <div className="relative h-64 overflow-hidden bg-gray-900 rounded-t-xl">
+                  <div className="relative h-48 sm:h-64 overflow-hidden bg-gray-900 rounded-t-xl">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -128,11 +128,11 @@ export default function Projects() {
                   </div>
 
                   {/* Content Container */}
-                  <div className="p-8 flex flex-col flex-grow bg-gradient-to-b from-transparent to-dark/50 rounded-b-xl">
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors">
+                  <div className="p-5 sm:p-8 flex flex-col flex-grow bg-gradient-to-b from-transparent to-dark/50 rounded-b-xl">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 mb-6 flex-grow leading-relaxed">
+                    <p className="text-gray-400 mb-6 flex-grow leading-relaxed text-sm sm:text-base">
                       {project.description}
                     </p>
 
@@ -141,7 +141,7 @@ export default function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-[1] flex items-center justify-center gap-2 py-3 rounded-xl bg-primary/20 text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300 min-w-[120px]"
+                        className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl bg-primary/20 text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300 text-sm sm:text-base min-w-[100px]"
                       >
                         <FaExternalLinkAlt className="text-sm" /> Live Demo
                       </a>
@@ -150,7 +150,7 @@ export default function Projects() {
                           href={project.youtube}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-[1] flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600/20 text-red-400 font-medium hover:bg-red-600 hover:text-white transition-all duration-300 min-w-[120px]"
+                          className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl bg-red-600/20 text-red-400 font-medium hover:bg-red-600 hover:text-white transition-all duration-300 text-sm sm:text-base min-w-[100px]"
                         >
                           <FaYoutube className="text-lg" /> Watch
                         </a>
@@ -160,7 +160,7 @@ export default function Projects() {
                           href={project.postmanDocs}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-[1] flex items-center justify-center gap-2 py-3 rounded-xl bg-orange-500/20 text-orange-400 font-medium hover:bg-orange-500 hover:text-white transition-all duration-300 min-w-[120px]"
+                          className="flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl bg-orange-500/20 text-orange-400 font-medium hover:bg-orange-500 hover:text-white transition-all duration-300 text-sm sm:text-base min-w-[100px]"
                         >
                           <FaBook className="text-lg" /> Docs
                         </a>
@@ -169,7 +169,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-[0.5] flex items-center justify-center gap-2 py-3 rounded-xl border border-white/20 text-white hover:bg-white/10 transition-all duration-300 group/git"
+                        className="flex-[0.5] flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl border border-white/20 text-white hover:bg-white/10 transition-all duration-300 group/git text-sm sm:text-base"
                       >
                         <FaGithub className="text-lg group-hover/git:scale-110 transition-transform" /> Code
                       </a>

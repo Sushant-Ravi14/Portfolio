@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Command } from 'cmdk';
-import { FaUser, FaBriefcase, FaCode, FaEnvelope, FaDownload, FaExternalLinkAlt } from 'react-icons/fa';
-import resumePdf from "../assets/sushant_ravi_resume.pdf";
+import { FaUser, FaBriefcase, FaCode, FaEnvelope, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function CommandPalette() {
   const [open, setOpen] = useState(false);
@@ -78,16 +77,13 @@ export default function CommandPalette() {
             <Command.Item
               onSelect={() =>
                 handleSelect(() => {
-                  const link = document.createElement('a');
-                  link.href = resumePdf;
-                  link.download = 'Sushant_Ravi_Resume.pdf';
-                  link.click();
+                  window.open('/sr_resume.pdf', '_blank');
                 })
               }
               className="flex items-center px-3 py-3 mt-1 text-sm text-gray-200 cursor-pointer rounded-lg hover:bg-white/10 data-[selected=true]:bg-white/10 transition-colors"
             >
-              <FaDownload className="w-4 h-4 mr-3 text-gray-400" />
-              Download Resume
+              <FaExternalLinkAlt className="w-4 h-4 mr-3 text-gray-400" />
+              View Resume
             </Command.Item>
             <Command.Item
               onSelect={() =>
